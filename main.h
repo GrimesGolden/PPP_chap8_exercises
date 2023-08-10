@@ -20,4 +20,14 @@ double maxv(const vector<double>& v);
 
 void stats(const vector<double>& v, double& largest, double& smallest, double& mean, double& median);
 
+void print_until_s(const vector<string>& v, string quit);
 
+void print_until_ss(const vector<string>& v, string quit);
+
+vector<int> chars_in_string(const vector<string>& s);
+
+void long_short(const vector<string>& s, string& longest, string& shortest);
+
+void first_last(const vector<string>& s, string& first, string& last);
+
+void f(const int x);

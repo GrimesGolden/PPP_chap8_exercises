@@ -237,3 +237,88 @@ void stats(const vector<double>& v, double& largest, double& smallest, double& m
 	mean = sum / v.size(); 
 
 }
+
+void print_until_s(const vector<string>& v, string quit) {
+	// For exercise 11/12 prints a vector of strings until the given string is read.
+	for (string s : v) {
+		if (s == quit) return;
+		cout << s << "\n";
+	}
+}
+
+void print_until_ss(const vector<string>& v, string quit) {
+	// This version does not quit until string is read twice. 
+	int count = 0;
+
+	for (string s : v) {
+		
+		if (s == quit) ++count;
+		if (count >= 2) return;
+		cout << s << "\n";
+	}
+}
+
+vector<int> chars_in_string(const vector<string>& s) {
+	// Returns a vector of ints, containing the sizes of each respective string in s.
+	// As per exercise 13.
+	vector<int> sizes;
+
+	for (int i = 0; i < s.size(); ++i) {
+		int size = s[i].size();
+		sizes.push_back(size);
+	}
+
+	return sizes;
+}
+
+void long_short(const vector<string>& s, string& longest, string& shortest) {
+	// Obtain the longest and shortest string from a vector of strings. 
+
+	int smallest_size = s[0].size();
+	int largest_size = s[0].size();
+
+	// Need integers to keep track of the size.
+	// Now, continuously update the string using these tracked ints.
+
+	for (int i = 0; i < s.size(); ++i) {
+		if (s[i].size() <= smallest_size) {
+			smallest_size = s[i].size();
+			shortest = s[i];
+		}
+
+		if (s[i].size() >= largest_size) {
+			largest_size = s[i].size();
+			longest = s[i];
+		}
+	}
+}
+
+void first_last(const vector<string>& s, string& first, string& last) {
+	// Find the lexicographically first and last string.
+	//Exercise 13
+
+	// Create a sorted copy of s.
+	// Now modify the arguments with this now lexicographically accurate vector.
+
+	vector<string> sorted_s = s;
+
+	sort(sorted_s.begin(), sorted_s.end());
+
+	int lst_elmnt = sorted_s.size() - 1;
+
+	first = sorted_s[0];
+	last = sorted_s[lst_elmnt];
+
+
+
+
+}
+
+void f(const int x) {
+	if (x == 1) {
+		cout << "Yes, the number is one";
+	}
+	else {
+		cout << "No, it's not one";
+	}
+}

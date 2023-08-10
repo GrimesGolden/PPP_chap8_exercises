@@ -70,4 +70,53 @@ int main() {
 	cout << "The mean is: " << mean << "\n";
 	cout << "The median is: " << median << "\n";
 
+	// Exercise 11, testing print_until_s
+
+	vector<string> case_one = { "Hello World", "this is a string", "test", "it got this far!" };
+	vector<string> case_two = { "test", "this is a string", "test", "it got this far!" };
+	vector<string> case_three = { "this is a test", "simply a test", "of the print_until_s() function", "it got this far!", "test", "error if reading"};
+	vector<string> case_four = { "read one", "read two", "test", "read three", "read four", "test complete!", "test", "do not read" };
+	print_until_s(case_one, "test");
+	print_until_s(case_two, "test");
+	print_until_s(case_three, "test");
+	print_until_ss(case_four, "test");
+
+	vector<string> size_test = { "1", "to", "tre", "four", "fivee", "sixxxx", "sevennn" };
+	vector<int> chars = chars_in_string(size_test);
+
+	for (int i = 0; i < chars.size(); ++i) {
+		cout << chars[i] << " \n";
+	}
+
+	//Exercise 13
+
+	string longest;
+	string shortest;
+
+	vector<string> length_test = { "longg!", "pretty long", "kinda long", "an extremely, almost absurdly long string", "not so long", "quite short", "short" };
+
+	long_short(length_test, longest, shortest);
+
+	cout << "The longest string is " << longest << " \n";
+	cout << "The shortest string is " << shortest << "\n";
+
+	vector<string> lexo = { "zebra", "kangaroo", "koala", "bear", "rabbit", "cat", "aardvark", "octopus" };
+
+	string first;
+	string last;
+
+	first_last(lexo, first, last);
+
+	cout << "The first string is " << first << " \n";
+	cout << "The last string is " << last << "\n";
+
+	// Exercise 14 testing.
+
+	int one = 1;
+	int two = 2;
+
+	f(one);
+	f(two);
 }
+
+
