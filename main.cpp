@@ -49,5 +49,25 @@ int main() {
 	}
 
 	//exercise 9 comes next....
+	vector<double> price = { 1, 2, 3, 4, 5 };
+	vector<double> weight = { 10, 10, 10, 10, 10 };
+
+	double index = price_weight(price, weight);
+	cout << "The index is: " << index << " \n";
+
+	// Now exercise 10
+	vector<double> v_numbs = { 99, 3, 2, 4, 2, 1, 4, 4, 3, 5, 100, 6, 6, 5, 4, 3, 2, 1, 3, 2, 1, 0, 2, 1, 1, 2, 3, 57, 57, 57, 58, 32, 1, 32, 4, 27, 26, 25.4, 1, 99.8, 52};
+	
+	double small = 0;
+	double large = 0;
+	double mean = 0;
+	double median = 0;
+
+	stats(v_numbs, large, small, mean, median);
+
+	cout << "Here are the statistics, largest number is: " << large << "\n";
+	cout << "Smallest number is: " << small << "\n";
+	cout << "The mean is: " << mean << "\n";
+	cout << "The median is: " << median << "\n";
 
 }

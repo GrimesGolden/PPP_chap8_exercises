@@ -154,3 +154,86 @@ void sort_age_name(vector<string>& n, vector<double>& a) {
 	// Note nothing is returned, we modify the vectors rather than creating arbitrarily large copies. (pass by value vs pass by ref)
 
 }
+
+double price_weight(const vector<double>& price, vector<double>& weight) {
+	// Write a function that given two vector<double> computes a value...
+	// An index, that is the sum of all price[i]*weight[i]. Make sure to have weight.size()==price.size()
+
+	// I chose to use constant reference, as we are reading from the vectors, not modifying.
+	// Again, a copy (pass by value) would waste memory. 
+	double index = 0;
+
+	if (price.size() == weight.size()) {
+		for (int i = 0; i < price.size(); ++i) {
+			double product = price[i] * weight[i];
+			index += product;
+		}
+	}
+	else {
+		error("Error: the price and weight vectors must have equal size.");
+	}
+
+	return index;
+}
+
+double maxv(const vector<double>& v) {
+	// Write a function that returns the largest element of a vector argument.
+	// The storage type of the vector has oddly, not been specified.
+	// I chose to use doubles.
+
+	// When we begin reading the function, the first element will naturally be the largest encountered thus far. 
+	double largest = v[0];
+
+	for (int i = 0; i < v.size(); ++i) {
+		if (v[i] >= largest) {
+			largest = v[i];
+		}
+	}
+
+	return largest;
+}
+
+void stats(const vector<double>& v, double& largest, double& smallest, double& mean, double& median) {
+	// Write a function that finds the smallest and largest element of a vector. 
+	// Also computes the mean and median. Do not use global variables.
+	// Either return a struct containg the result or pass them back through reference arguments.
+	// A struct seems needlessly complicated, I will just pass ref arguments. 
+
+	// Calculate largest.
+	largest = maxv(v);
+	// Calculate smallest.
+	smallest = v[0];
+	for (int i = 0; i < v.size(); ++i) {
+		if (v[i] <= smallest) {
+			smallest = v[i];
+		}
+	}
+
+	// Calculate median.
+	// Sort first
+	vector<double> sort_v = v;
+	sort(sort_v.begin(), sort_v.end());
+
+	// If the number of data points is odd.
+	if ((v.size() % 2) != 0) {
+		// Median equal the middle of the data sets. 
+		int i = ((v.size() + 1) / 2);
+		median = sort_v[i - 1];
+	}
+	else if ((v.size() % 2 == 0)) {
+		// If number of data points are even. 
+		// Take the average of the two middle data points.
+		int i = ((v.size() / 2));
+		median = (sort_v[i] + sort_v[i - 1]) / 2;
+
+	}
+
+	// Calculate mean.
+	double sum = 0;
+	for (int i = 0; i < v.size(); ++i) {
+		sum += v[i];
+	}
+
+	mean = sum / v.size(); 
+
+}
